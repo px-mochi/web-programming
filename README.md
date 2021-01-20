@@ -17,8 +17,8 @@ Here is a short description of what is in this repo:
 - AJAX call using jQuery to change list attributes
 - Utilized: HTML, CSS, Javascript, jQuery, Python, Flask framework
 
-## A simple reporting dashboard [Link](Jan_2019_Web_Programming/q3)
-#### Question 3 - Simple table showing report results
+## A simple reporting dashboard 
+#### Question 3 - Simple table showing report results [Link](Jan_2019_Web_Programming/q3)
 - Creation of a basic table to show limited number of results on the dashboard's first page
 - A button to load the next 10 records when clicked
 - Sorting via clicking of table headers
