@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block header %}
+	<link rel="stylesheet" href="/static/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" defer></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="/static/js/chart.js" defer></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please use a browser that supports JavaScript to enjoy all features of this page.</noscript>
+{% endblock %}
+
+
+{% block content %}
+	<div class=canvas-container>
+	<canvas id="stackChart" width="800" height="500"></canvas>
+	</div>
+
+	<div class="buttons-container">
+	<span>Click on the legend above the chart to hide/unhide values.</span>
+	<br>
+	<span>Continents shown are: Asia, America, Europe only</span>
+	</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8"> <!-- Not supported in HTML5 -->
+<html>
+<head> 
+	{% block header %}
+	{% endblock %}
+</head>
+
+<body>
+<!-- page content -->
+<!-- HTML -->
+<!-- Question 3a) Making a template for the dashboard -->
+<div class="sidebar">
+	<a href="/10">Data Table</a>
+	<br>
+	<br>
+	<a href="/data-chart?header=country&by=Singapore">Data Chart</a>
+	<br>
+	<br>
+	<a href="/stack-chart?header=continent&by=Asia&grouping=population&groupAgg=sum">Stack Chart</a>
+	<br>
+	<br>
+	<a href="/chart-filters?header=continent&by=Argentina&grouping=gdpPercap%grouping=sum">Chart Filters</a>
+</div>
+
+<div class="main-body clearfix">
+	<div class="header">
+		<span>Global Demographic</span>
+	</div>
+
+	{% block content %}
+	<!-- {{table}} for the future chats that we will be adding -->
+	{% endblock %}
+
+</div>
+
+</body>
+</html>

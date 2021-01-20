@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<meta charset="utf-8"> <!-- Not supported in HTML5 -->
+<html>
+<head> 
+	<link rel = "stylesheet" href = "/static/css/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="/static/js/main.js" defer></script>
+	<script type="text/javascript" defer>
+		{{buttonScript|safe}}
+		{{checkboxScript|safe}}
+	</script>
+	<noscript>Sorry, your browser does not support JavaScript! Please use a browser that supports JavaScript to enjoy all features of this page.</noscript>
+
+</head>
+
+<body>
+<!-- page content -->
+<!-- HTML -->
+<!-- Question 1a) Building up the recent conversation section -->
+<div class="header">
+	<p>List</p>
+</div>
+
+<!-- Recent conversations section -->
+<div class="section-header">
+ 	<p>RECENT CONVERSATIONS</p>
+</div>
+
+<ul class="recent-conversations">
+	{% block content %}
+	<!-- {{chat}} for the future chats that we will be adding -->
+	{% endblock %}
+
+	<li class="one-chat clearfix" id="Finn-original">
+	 	<div class="avatar"><img src="static/img/Avatars/001-man.png" alt = "Finn-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Finn</h1>
+		 	<span class="status">I'm a big deal</span>
+		 	<br>
+		 	<p class="last-message">Listen, I've had a pretty messed up day. Don't disturb me! I don't want to fight with you</p>
+	 		<input type="checkbox" name="Finn-original" value="Finn-original">
+	 	</div>
+	</li>
+
+	<li class="one-chat clearfix" id="Han-original">
+	 	<div class="avatar"><img src="static/img/Avatars/005-man-3.png" alt = "Han-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Han</h1>
+		 	<span class="status">Look, kid...</span>
+		 	<br>
+		 	<p class="last-message">I've got enough on my plate as it is, I do not need kids like you causing trouble! </p>
+		 	<input type="checkbox" name="Han-original" value="Han-original">
+	 	</div>
+	</li>
+
+	<li class="one-chat clearfix" id="Rey-original">
+	 	<div class="avatar"><img src="static/img/Avatars/006-gentleman.png" alt = "Rey-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Rey</h1>
+		 	<span class="status">I can handle myself</span>
+		 	<br>
+		 	<p class="last-message">You will remove these restraints and leave this cell with the door open. </p>
+		 	<input type="checkbox" name="Rey-original" value="Rey-original">
+	 	</div>
+	</li>
+
+	<li class="one-chat clearfix" id="Luke-original">
+	 	<div class="avatar"><img src="static/img/Avatars/008-man-4.png" alt = "Luke-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Luke</h1>
+		 	<span class="status">Your thoughts betray you</span>
+		 	<br>
+		 	<p class="last-message">I feel the good in you, the conflict. V: There is no conflict Luke: You couldn’t bring yourself to kill me before and I don’t believe you’ll destroy me now. V: You underestimate the power of the Dark Side. If you will not fight, then you will meet your destiny. (moviequotesandmore, n.d.)
+
+		 	I should probably quote this at this point for turnitin.. 
+
+		 	moviequotesandmore. (n.d.). Best Quotes From Star Wars Movies – ‘Do or do not. There is no try.’. Retrieved from moviequotesandmore: https://www.moviequotesandmore.com/best-quotes-from-star-wars/
+		 	</p>
+		 	<input type="checkbox" name="Luke-original" value="Luke-original">
+	 	</div>
+	</li>
+</ul>
+
+
+<!-- Online section -->
+<div class="section-header">
+	<p>ONLINE</p>
+</div>
+
+<ul class="online">
+	<li class="one-chat clearfix">
+	 	<div class="avatar"><img src="static/img/Avatars/009-punk.png" alt = "Poe-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Poe</h1>
+		 	<span class="status">New Ride</span>
+		 	<br>
+		 	<p class="last-message">I just upgraded my X-Wing. Next will be my Y-Wing. Then my Z-Wing! I didn't actually ever watch star wars.</p>
+	 	</div>
+	</li>
+
+	<li class="one-chat clearfix">
+	 	<div class="avatar"><img src="static/img/Avatars/022-man-5.png" alt = "Ben-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Ben</h1>
+		 	<span class="status">Move Along</span>
+		 	<br>
+		 	<p class="last-message">These aren't the droids you're losing? I have no idea what word that was supposed to be, but the droids in Star Wars are cute.</p>
+	 	</div>
+	</li>
+
+	<li class="one-chat clearfix">
+	 	<div class="avatar"><img src="static/img/Avatars/016-woman-8.png" alt = "Leia-avatar"></div>
+	 	<div class="text-container">
+		 	<h1>Leia</h1>
+		 	<span class="status">Only Hope</span>
+		 	<br>
+		 	<p class="last-message">I have absolutely no idea what to put here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	 	</div>
+	</li>
+</ul>
+
+
+<!-- Question 1b): adding a button -->
+<div class="sticky-buttons">
+	<div class="btn1-center">
+	<input type ="Button" value="Button" class="main-buttons" id="add-conversation">
+	</div>
+	<br>
+
+<!-- Question 1c) Button 2 -->
+	<div class=btn2-center>
+	<input type ="Button" value="Button 2" class="main-buttons" id="button2" onclick="location.href = '/display-change';">
+	</div>
+	<br>
+
+<!-- Question 1d) Button 3 -->
+	<div class=btn3-center>
+	<input type ="Button" value="Button 3" class="main-buttons" id="button3">
+	</div>
+	<br>
+
+</div>>
+
+
+<!-- Form to input details for new conversation -->
+<form class="adding-conversation" action="/add-chat" method="POST" id="conversation-form">
+	<div class="form-row">
+		<div class="col-20"><label for="nameInput">Name:</label></div>
+		<div class="col-80"><input type="text" id="nameInput" name="nameInput" placeholder="Input your name" required></div>
+	</div>
+	<div class="form-row">
+		<div class="col-20"><label for="statusInput">Status:</label></div>
+		<div class="col-80"><input type="text" id="statusInput" name="statusInput" placeholder="What's your status?" required></div>
+	</div>
+	<div class="form-row">
+		<div class="col-20"><label for="messageInput">Message:</label></div>
+		<div class="col-80"><textarea id="messageInput" name="messageInput" placeholder="Your message here" rows="10" cols="30" maxlength="300" wrap="soft" required></textarea>
+	</div>
+	<div class="form-row" id="submit-btn">
+			<input type="submit" value="Submit" class="submit-form">
+	</div>
+</form>
+</body>
+</html>

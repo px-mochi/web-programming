@@ -1,0 +1,181 @@
+/* em is used for font size as it is more scalable for mobile devices */
+
+html {font-family: Calibri}
+
+body {
+	margin: 0;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	float: left;
+	width: 20%;	
+	background-color: #4472C4;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 30px;
+	box-sizing: border-box; 
+}
+
+.sidebar > a{
+	font-size: 1.2em;
+	color: #FFFFFF;
+}
+
+.main-body{
+	position: fixed;
+	float: right;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	width: 80%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Header */
+.header {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	font-weight: bold;
+	font-size: 1.2em;
+	text-align: left;
+	background-color: #B4C7E7;
+	color: #FFFFFF;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 30px;
+}
+
+/* Style table */
+.demographics-table {
+	position: relative;
+	top: 20px;
+	left: 20px;	
+}
+
+table{
+	border-spacing: 0;
+	border-collapse: collapse;
+	overflow-y: scroll;
+	height: 700px;
+	display: block;
+}
+
+th {
+	border-bottom: 1px solid #000000;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+th a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+td {
+	padding: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
+	width: 90px; /* Looks neater tha more consistent this way */
+	overflow: hidden;
+}
+
+.table-data-row:nth-child(even){
+	background-color: #F5F5F5;
+}
+
+.checkbox-table-header {
+	padding-right: 1px;
+	padding-left: 1px;
+	border: none;
+}
+
+.checkbox-table-row {
+	padding: 1px;
+	width: 55px;
+	background-color: #FFFFFF;
+	padding-top: 10px;
+	vertical-align: text-top;
+}
+
+/* Style custom checkbox */
+input[type=checkbox] {
+	opacity: 0;
+}
+/* Make the checkmark box */
+.checkbox label::before{
+	content: "";
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	border: 1px solid #D5D5D5;
+	background-color: #FFFFFF;
+}
+
+/* Make the checkmark.. using a rotated element with bottom and left borders */
+.checkbox label::after {
+	content: "";
+	display: inline-block;
+	height: 4px;
+	width: 10px;
+	border-left: 4px solid #F5F5F5;
+	border-bottom: 4px solid #F5F5F5;
+	transform: rotate(-45deg);
+}
+
+.checkbox label {
+	position: relative;
+}
+
+.checkbox label::before, .checkbox label::after {position: absolute;}
+/* position the box */
+.checkbox label::before {top: 0px;}
+/* position the checkmark */
+.checkbox label::after {
+	left: 4px;
+	top: 7px;
+}
+
+/* Make checkbox appear and disappear */
+.checkbox input[type="checkbox"] + label::after {content: none;}
+.checkbox input[type="checkbox"]:checked + label::after {content: "";}
+.checkbox input[type="checkbox"]:checked + label::before {background-color: #9E9E9E;}
+/* make checkbox clickable using keyboard */
+.checkbox input[type="checkbox"]:focus + label::before {outline: #6495ED auto 5px;}
+
+
+/* Style and position buttons */
+.buttons-container{
+	position: absolute;
+ 	bottom: 1em;
+ 	left: 1em;
+}
+
+input[type=button] {
+	background-color: #8FAADC;
+	border: none;
+	border-radius: 5px;
+	color: #FFFFFF;
+	padding: 3px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1em;
+}
+
+input[type=button]:hover {
+	background-color: #4673C6;
+	color: #FFFFFF;
+}
+
+/* clearfix instead of using clear-float divs everywhere */
+.clearfix:after {
+	content: "";
+	clear:both;
+	zoom: 1; /* for IE6/7 */
+}

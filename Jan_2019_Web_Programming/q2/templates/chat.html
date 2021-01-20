@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% for item in chat_data %}
+    
+    <li class="one-chat clearfix" id="{{item.id}}">
+        <div class="avatar"><img src={{item.avatar}} alt = "{{item.name}}-avatar"></div>
+        <div class="text-container">
+            <h1>{{item.name}}</h1>
+            <span class="status">{{item.status}}</span>
+            <br>
+            <p class="last-message">{{item.message}}</p>
+	            <input type="checkbox" name="{{item.id}}" value="{{item.id}}">
+        </div>
+    </li>
+{% endfor %}
+{% endblock %}

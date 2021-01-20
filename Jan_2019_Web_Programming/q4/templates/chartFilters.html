@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+{% block header %}
+	<link rel="stylesheet" href="/static/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" defer></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="/static/js/chart.js" defer></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please use a browser that supports JavaScript to enjoy all features of this page.</noscript>
+{% endblock %}
+
+
+{% block content %}
+	<div class=canvas-container>
+	<canvas id="dataChart" width="500" height="600"></canvas>
+	</div>
+
+
+	<select id="continent" name="continent-dropdown">
+	{% for item in continentList %}
+	    <option>{{item}}</option>
+	{% endfor %}
+	</select>
+
+
+	<div class="buttons-container">
+	<div id="first-three-countries">
+		<p><em>First 3 countries in continent selected</em></p>
+		{% for country in countryList %}
+		<p>{{country}}</p>
+		{% endfor %}
+	</div>
+	</div>
+	
+
+{% endblock %}

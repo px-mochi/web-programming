@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="utf-8"> <!-- Not supported in HTML5 -->
+<html>
+<head> 
+	<link rel="stylesheet" href="/static/css/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="/static/js/main.js" defer></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please use a browser that supports JavaScript to enjoy all features of this page.</noscript>
+</head>
+
+<body>
+<!-- page content -->
+<!-- HTML -->
+<!-- Question 3a) Making a template for the dashboard -->
+<div class="sidebar">
+	<a href="/10">Data Table</a>
+</div>
+
+<div class="main-body clearfix">
+	<div class="header">
+		<span>Global Demographic</span>
+	</div>
+
+	<table class="demographics-table">
+		<tr class="table-header-row"> <!--table row for column headers-->
+			<th class="checkbox-table-header"></th>
+			{% for item in headers %}
+			<th>
+				<a href="">
+				{{item}}
+				</a>
+			</th>
+			{% endfor %}
+		</tr>
+	<tbody> <!--Decided not to put this in a seprate template-->
+		{% for item in data_list %}
+		<tr class="table-data-row" id={{item.lineID}}>
+			<td class="checkbox-table-row">
+				<div class="checkbox">
+				<input type="checkbox" id="checkbox_{{item.lineID}}" value="{{item.lineID}}">
+				<label for="checkbox_{{item.lineID}}"></label>
+				</div>
+			</td>
+		    <td>{{item.Country}}</td>
+		    <td>{{item.Continent}}</td>
+		    <td>{{item.Year}}</td>
+		    <td>{{item.LifeExp}}</td>
+		    <td>{{item.Population}}</td>
+		    <td>{{item.gdpPerCap}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+
+	<div class="buttons-container">
+	<input type ="button" value="Next 10" id=nextTen>
+	<input type ="button" value="Delete" id=delete onclick="deleteRow()">
+	<span class="delete-warning">Deleting records via "Delete" will remove it from the server.</span>
+	</div>
+</div>
+
+</body>
+</html>

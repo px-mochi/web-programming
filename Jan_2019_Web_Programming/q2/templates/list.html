@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8"> <!-- Not supported in HTML5 -->
+<html>
+<head> 
+<style>
+.header {
+	font-weight: bold;
+	font-size: 1.5em;
+	text-align: center;
+	border-bottom: 1px #cccccc;
+	background-color: #ffffff;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.chat {
+	border: 1px;
+	border-color: #99b3ff;
+	border-style: dotted;
+	margin: 2px;
+	padding: 2px;
+}
+
+body {
+	font-family: Calibri;
+}
+
+.chat > p {
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+</style>
+</head>
+
+<body>
+	<div class="header">
+	<p>List of conversations added to "Recent Conversations" in this session</p></div>
+	{% for item in chat_data %}
+	<div class="chat">
+		<p>Name: {{item.name}}</p>
+		<p>Status: {{item.status}}</p>
+		<p>Message: {{item.message}}</p>
+	--------------------------------------------------
+		<p>ID of chat: {{item.id}}</p>
+		<p>Location of avatar: {{item.avatar}}</p>
+	</div>
+	{% endfor %}
+</body>
+</html>
