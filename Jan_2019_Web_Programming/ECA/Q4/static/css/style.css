@@ -1,0 +1,384 @@
+* { /*Chrome still eats my top part of my header somehow with html, 
+	thus i'm selecting the entire document even though it's more weight*/
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 300;
+}
+
+p {overflow: auto;}
+
+.header {
+	background-color: #ccddff;
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	width: 50%;
+	text-align: left;
+}
+
+.title {
+	width: 95%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar-container {
+	display: flex;
+}
+
+.nav-item {
+	color: #0000cc;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: 500;
+	justify-content: flex-end;
+}
+
+.nav-edit {color: #6600cc; font-weight: 550;}
+
+.navbar-container > a:link, .navbar-container > a:visited {text-decoration: none;}
+.navbar-container > a:hover, .navbar-container > a:active {text-decoration: underline;}
+
+.clearfix:after {
+	content: "";
+	clear:both;
+	display: table;
+	zoom: 1; /* for IE6/7 */
+}
+
+.body-container {
+	position: relative;
+	margin-left: 5%;
+	margin-right: 5%;
+	min-height: 550px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	flex-wrap: wrap;
+}
+
+
+/* I am going to use flexbox to automatically position the videos nicely */
+.video-wrapper-container, .canvas-wrapper-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+/* Within each video box */
+.video-wrapper {
+	width: 48%;
+	position: relative;
+}
+
+video {
+	width: 100%;
+	height: auto;
+}
+
+.popup-detail-buttons, .popup-edit-buttons {
+	position: relative;
+	bottom: 20%;
+	width: 30%;
+	height: 15%;
+	/* Centering the button. */
+	display: table;
+	margin: 0 auto;
+	background-color: #0066ff;
+	border-radius: 10px;
+	border-style: 1px solid #99ccff;
+	color: #ffffff;
+}
+
+.popup-detail-buttons:hover {background-color: #6699ff;}
+.popup-edit-buttons {background-color: #c61aff;}
+.popup-edit-buttons:hover {background-color: #ac00e6;}
+
+.popup-video-detail-buttons {
+	position: absolute;
+	top: 3%;
+	right: 3%;
+	border-style: none;
+	background-color: transparent;
+	text-shadow: 0 0 3px #FFFFFF;
+	font-weight: bold;
+}
+
+.popup-video-detail-buttons:hover {text-shadow: 0 0 3px #00ccff}
+
+
+.footer-container {
+	background-color: #ccddff;
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100px;
+	display: flex;
+	padding-left: 20%;
+	padding-right: 20%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* Styling the originally hidden elements (i.e. Profile, About, Terms) */
+.profile-wrapper, .site-info, .video-info-wrapper {
+	width: 80%;
+	height: 50%;
+	min-height: 250px;
+	padding: 8%;
+	position: fixed;
+	top: 20%;
+	left: 10%;
+	background-color: rgba(219,240,219,0.95);
+	display: none;
+	z-index: 1;
+	overflow: auto;
+}
+.video-info-wrapper {background-color: rgba(102, 153, 140, 0.95)}
+.video-info-wrapper h3 {font-weight: bold; width: 100%; text-align: center;}
+
+.main-details {
+	position: relative;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.avatar{
+	float: left;
+	position: relative;
+	box-sizing: border-box;
+	width: 15%;
+	max-height: 15%;
+	overflow: hidden;
+}
+
+.avatar img {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	border-radius: 10px;
+	background-color: rgba(240,240,240,0.8);
+}
+
+.main-details h3 {
+	float: right;
+	width: 80%;
+	text-align: left;
+	margin-top: 5%; 
+	color: darkblue;
+	font-weight: bold;
+}
+
+.profile-wrapper > p {
+	position: relative;
+	width: 90%;
+	margin-top: 5%;
+	color: darkblue;
+}
+
+.site-info {background-color: rgba(204, 204, 255, 0.95);}
+
+.site-info h3 {
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	margin: auto;
+	color: #000000;
+	font-weight: bold;
+}
+
+#btn-about, #btn-terms {
+	border-radius: 1px;
+	border-style: none;
+	background-color: transparent;
+	position: static;
+	display: inline-flex;
+	color: #000000;
+	width: auto;
+	height: auto;
+}
+
+#btn-about:hover, #btn-terms:hover {
+	border-bottom: 1px solid grey;
+}
+
+/* Aligning advertisements */
+#advertisement-container {
+	position: relative;
+	margin: auto;
+	max-width: 1070px; /* Bottom of ad extends past my header on my screen after that */
+	width: 90%;
+}
+
+.bannerAd {
+	border: 1px solid #000000;
+	width: 100%;
+	position: relative;
+	margin: auto;
+	display: hide;
+}
+
+/* Styling login/register form -  */
+.form-container {
+	margin: auto;
+	width: 60%;
+	position: relative;
+}
+
+/* Style the main message area */
+#descriptionInput {
+	height: 100px;
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccddff;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: 'Quicksand', sans-serif;
+	resize: none;
+}
+
+.flashes {width: 100%; color: #FFFFFF; z-index: 2;}
+.absolute {position: absolute; top: 0;}
+.flashes a {color: #FFFFFF;}
+.error {
+	background-color: red;
+	padding: 1em;
+	border-radius: 4px;
+	list-style: none;
+}
+.success {
+	background-color: green;
+	padding: 1em;
+	border-radius: 4px;
+	list-style: none;
+}
+
+/* Change the font type and size for the form labels */
+form {
+	font-size: 1em;
+	width: 100%;
+	padding-top: 1em;
+}
+
+/* Style the input boxes */
+.user-input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccddff;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+/* Style the labels for each input box */
+.form-container label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;	
+}
+
+#repeatPassLabel {padding: 0; padding-right: 12px;}
+
+/* Style the form submit button */
+.submit-form {
+	background-color: #00cc00;
+	border: 1px solid #000000;
+	color: #ffffff;
+	border-radius: 4px;
+	text-align: center;
+	opacity: 0.5;
+	transition: 0.2s;
+	float: left;
+	padding: 12px;
+	display: inline-block;
+	width: 100px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.submit-form:hover {opacity: 1;}
+.submit-form:disabled {background-color: #669999;}
+
+/* Floating column for labels: 20% width */
+.col-25 {
+	text-align: right;
+	float: left;
+	width: 25%;
+	max-width: 100px;
+	margin-top: 6px;
+}
+
+/* Floating column for inputs: 80% width */
+.col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.col-75 {
+	width: 100%;
+	margin-top: 0;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.col-25 {
+		text-align: left;
+		margin-top: 0;
+		margin-left: 5px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.submit-form {
+		width: 100%;
+		margin: 0;
+		margin-top: 1em;
+		padding: 12px;
+	}
+}
+.form-row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.form-title {font-weight: 600;}
+
+#avatar-choose {margin-top: 30px; margin-bottom: 10px;}
+
+label {margin-right: 5px;}
+
+#view-all-videos {
+	width: 100%;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	margin: 1em;
+}
+
+#view-all-videos > a {width: 100%; text-align: center;}
+
+input[type=Checkbox] {width: 1.5em; height: 1.5em; position: relative; top: 5px;}
+.chkbx-label {color: red; font-weight: 600;}
+
+#hidden-input-video-edit {display: none;}
+
+.canvas-wrapper {
+	width: 95%;
+}

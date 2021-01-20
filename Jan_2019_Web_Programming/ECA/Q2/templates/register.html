@@ -1,0 +1,48 @@
+<!-- register.html template -->
+{% extends "base.html" %}
+
+		{% block adBanners %}
+		{{super()}}
+		{% endblock adBanners %}
+
+
+{% block content %}
+<div class="form-container">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	  {% if messages %}
+	    <ul class="flashes">
+	    {% for category, message in messages %}
+	      <li class="{{category}}">{{ message | safe }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+	<form action="/register" method="POST" id="register-form">
+		<div class="form-row">
+			<div class="col-25"><label for="emailInput">Email:</label></div>
+			<div class="col-75"><input class="user-input" type="text" id="emailInput" name="emailInput" pattern="^.+@[^\.].*\.[a-z]{2,}$" title="Please input a valid email" placeholder="This will be your username." required></div>
+			<!-- HTML native email validation is not as precise -->
+		</div>
+		<div class="form-row">
+			<div class="col-25"><label for="passwordInput">Password:</label></div>
+			<div class="col-75"><input class="user-input" type="Password" id="passwordInput" name="statusInput" minlength="8" maxlength="16" pattern="[a-zA-z0-9]+" title="Your password cannot include any special characters except alphabets and numbers." required></div>
+		</div>
+		<div class="form-row">
+			<div class="col-25"><label for="passwordInputRepeat" id="repeatPassLabel">Repeat Password:</label></div>
+			<div class="col-75"><input class="user-input" type="Password" id="passwordInputRepeat" name="passwordInput" minlength="8" maxlength="16" pattern="[a-zA-z0-9]+" title="Your password cannot include any special characters except alphabets and numbers." required></div>
+		</div>
+		<div class="form-row">
+			<span id="form-message"></span>
+		</div>
+		<div class="form-row" id="submit-btn">
+				<input type="submit" value="Submit" class="submit-form">
+		</div>
+	</form>
+</div>
+
+{% endblock %}
+
+{% block more_js %}
+{{super()}}
+<script src="/static/scripts/register_form.js"></script>
+{% endblock more_js %}

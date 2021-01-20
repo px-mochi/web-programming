@@ -1,0 +1,61 @@
+<!-- video.html template -->
+{% extends "base.html" %}
+
+		{% block adBanners %}
+		{{super()}}
+		{% endblock adBanners %}
+
+{% block content %}
+	{% with messages = get_flashed_messages(with_categories=True) %}
+	  {% if messages %}
+	  <ul class="flashes absolute">
+	  {% for category, message in messages %}
+	      <li class="{{category}}">{{ message | safe }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+
+	<div class="video-wrapper-container">
+		{% for item in videos[:4] %}
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="{{item.videoPath}}" type="{{item.videoType}}"><p>Your browser does not support HTML5 video. To download the video, click <a href="{{item.videoPath}}">here</a>.</p>
+			</video>
+			{% for profile in item.uploaderProfile %}
+			<input type ="Button" value="Profile" class="popup-detail-buttons" id="btn-profile{{profile.userid}}">
+			{% endfor %}
+			<input type ="Button" value="Info" class="popup-video-detail-buttons" id="btn-video-{{item.videoid}}">
+		</div>
+		{% endfor %}
+	</div>
+
+	<!-- Profile popup windows -->
+	{% for item in videos[:4] %}
+	{% for profile in item.uploaderProfile %}
+	<div class="profile-wrapper" tabindex="-1" id="profile{{profile.userid}}">
+		<div class="main-details clearfix">
+		<div class="avatar"><img src="{{profile.profileImage}}" alt="profile{{profile.userid}}-avatar"></div>
+			<h3>{{profile.profileName}}</h3>
+		</div>
+		<p>{{profile.profileInfo}}</p>
+	</div>
+	{% endfor %}
+	{% endfor %}
+
+	{% for item in videos[:4] %}
+	<div class="video-info-wrapper" tabindex="-1" id="video-{{item.videoid}}">
+		<h3>{{item.videoName}}</h3>
+		<p>{{item.videoDescription}}</p>
+	</div>
+	{% endfor %}
+{% if videos|length > 4 %}
+<div id="view-all-videos"><a href="/all-videos">View all uploaded videos >></a></div>
+{% endif %}
+
+{% endblock %}
+
+{% block more_js %}
+{{super()}}
+<script src="/static/scripts/video_page.js"></script>
+{% endblock more_js %}

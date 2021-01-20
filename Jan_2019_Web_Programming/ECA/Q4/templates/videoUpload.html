@@ -1,0 +1,48 @@
+<!-- videoUpload.html template -->
+{% extends "base.html" %}
+
+		{% block adBanners %}
+		{{super()}}
+		{% endblock adBanners %}
+
+{% block content %}
+<div class="form-container">
+	{% with messages = get_flashed_messages(with_categories=True) %}
+	  {% if messages %}
+	  <ul class="flashes">
+	  {% for category, message in messages %}
+	      <li class="{{category}}">{{ message | safe }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+	<form action="/upload" method="POST" enctype="multipart/form-data" id="video-upload-form">
+		<div class="form-row">
+				<h3 class=form-title>Upload a video!</h3>
+				<br>
+				<p>Your storage space left (Max 50MB): <span id="remaining-storage">{% block storage %}{{storage}}{% endblock %}</span> MB</p>
+				<br>
+			<input type="file" id="videoUpload" name="videoUpload" 
+				accept="video/webm, video/ogg, video/mp4">
+		</div>
+		<div class="form-row">
+			<div class="col-25"><label for="videoNameInput">Name:</label></div>
+			<div class="col-75"><input class="user-input" type="text" id="videoNameInput" name="videoNameInput" maxlength="50" title="Title is required. (Max 50 characters)" required></div>
+			<!-- HTML native email validation is not as precise -->
+		</div>
+		<div class="form-row">
+			<div class="col-25"><label for="descriptionInput">Description:</label></div>
+			<div class="col-75"><textarea id="descriptionInput" name="descriptionInput" placeholder="What is your video about?" rows="10" cols="30" maxlength="300" wrap="soft" required></textarea></div>
+		</div>
+		<div class="form-row" id="submit-btn">
+				<input type="submit" value="Submit" class="submit-form">
+		</div>
+	</form>
+</div>
+
+{% endblock %}
+
+{% block more_js %}
+{{super()}}
+<script src="/static/scripts/video_upload.js"></script>
+{% endblock more_js %}

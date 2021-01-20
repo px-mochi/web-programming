@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8"> <!-- Not supported in HTML5 -->
+<html>
+<title>Home Page | Live video streaming</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+<link rel = "stylesheet" href = "static/css/style.css">
+<head> 
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="static/scripts/main.js" defer></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please use a browser that supports JavaScript to enjoy all features of this page.</noscript>
+</head>
+
+<body>
+<!-- page content -->
+<!-- HTML -->
+<!-- Question 1a) drafting up the static html of the site-->
+
+<div class="header">
+	<div class="title">
+		<h1>Home Page</h1>
+	</div>
+	<div id="advertisement-container"> 
+		<!-- 1st Section, title is in header just because it looks nicer in the blue header as well -->
+		<!-- Banners from Mr Tan's github -->
+		<img class="bannerAd" src="static/img/adverts/banner1.png">
+		<img class="bannerAd" src="static/img/adverts/banner2.png">
+	</div>
+</div>
+
+<div class="body-container"> <!-- 2nd section, main body housing videos -->
+	<div class="video-row-wrapper">
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="https://github.com/mengchoontan/school-239/blob/master/lady-walking.mp4?raw=true" type="video/mp4"><p>Your browser does not support HTML5 video. To download the video, click <a href="https://github.com/mengchoontan/school-239/blob/master/lady-walking.mp4?raw=true">here</a>.</p>
+			</video>
+			<input type ="Button" value="Profile" class="popup-detail-buttons" id="btn-profile1">
+		</div>
+
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="https://github.com/mengchoontan/school-239/blob/master/lady-with-phone.mp4?raw=true" type="video/mp4"><p>Your browser does not support HTML5 video. To download the video, click <a href="https://github.com/mengchoontan/school-239/blob/master/lady-with-phone.mp4?raw=true">here</a>.</p>
+			</video>
+			<input type ="Button" value="Profile" class="popup-detail-buttons" id="btn-profile2">
+		</div>
+	</div>
+
+	<div class="video-row-wrapper">
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="https://github.com/mengchoontan/school-239/blob/master/man-on-bike.mp4?raw=true"><p>Your browser does not support HTML5 video. To download the video, click <a href="https://github.com/mengchoontan/school-239/blob/master/man-on-bike.mp4?raw=true">here</a>.</p>
+			</video>
+			<input type ="Button" value="Profile" class="popup-detail-buttons" id="btn-profile3">
+		</div>
+
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="https://github.com/mengchoontan/school-239/blob/master/man-sunrise.mp4?raw=true" type="video/mp4"><p>Your browser does not support HTML5 video. To download the video, click <a href="https://github.com/mengchoontan/school-239/blob/master/man-sunrise.mp4?raw=true">here</a>.</p>
+			</video>
+			<input type ="Button" value="Profile" class="popup-detail-buttons" id="btn-profile4">
+		</div>		
+	</div>	
+
+
+	<!-- Profile popup windows -->
+	<div class="profile-wrapper" tabindex="-1" id="profile1">
+		<div class="main-details clearfix">
+		<div class="avatar"><img src="static/img/avatars/014-woman-6.png" alt="profile1-avatar"></div>
+			<h3>Lily</h3>
+		</div>
+		<p>Hi guys rememmber to like share and subscribe and hit dat bell button for updates</p>
+	</div>
+
+	<div class="profile-wrapper" tabindex="-1" id="profile2">
+		<div class="main-details clearfix">
+		<div class="avatar"><img src="static/img/avatars/016-woman-8.png" alt="profile1-avatar"></div>
+			<h3>Rachel</h3>
+		</div>
+		<p>Welcome to my cooking livesteam!</p>
+	</div>
+
+	<div class="profile-wrapper" tabindex="-1" id="profile3">
+		<div class="main-details clearfix">
+		<div class="avatar"><img src="static/img/avatars/009-punk.png" alt="profile1-avatar"></div>
+			<h3>Tom</h3>
+		</div>
+		<p>Like my orange hair? Or hairstyle?</p>
+	</div>
+
+	<div class="profile-wrapper" tabindex="-1" id="profile4">
+		<div class="main-details clearfix">
+		<div class="avatar"><img src="static/img/avatars/006-gentleman.png" alt="profile1-avatar"></div>
+			<h3>Profile Four</h3>
+		</div>
+		<p>Yo! My name is Profile Four, also known as P4. I am known for my lack of creativity in making screen names.</p>
+	</div>
+
+	<div class="site-info" tabindex="-1" id="about">
+			<h3>ABOUT</h3>
+			<br>
+		<p>This is a livestreaming website! By ICT239 ECA.</p>
+	</div>
+
+	<div class="site-info" tabindex="-1" id="terms">
+			<h3>TERMS</h3>
+			<br>
+		<p>Blah blah do not plagerize and this is a MVP product etc etc.</p>
+	</div>
+
+</div>
+
+
+<div class="footer-container"> <!-- 3rd section, footer -->
+	<input type ="Button" value="about" class="popup-detail-buttons" id="btn-about">
+	<input type ="Button" value="terms" class="popup-detail-buttons" id="btn-terms">
+</div>
+</body>
+</html>

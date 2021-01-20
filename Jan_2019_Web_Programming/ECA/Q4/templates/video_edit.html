@@ -1,0 +1,74 @@
+<!-- video.html template -->
+{% extends "base.html" %}
+
+		{% block adBanners %}
+		{{super()}}
+		{% endblock adBanners %}
+
+{% block content %}
+	{% with messages = get_flashed_messages(with_categories=True) %}
+	  {% if messages %}
+	  <ul class="flashes absolute">
+	  {% for category, message in messages %}
+	      <li class="{{category}}">{{ message | safe }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+
+
+	{% if not videos %} <!-- If there are no videos uploaded by the user -->
+`	<ul class="flashes absolute">
+		<li class="success">
+		You have no videos uploaded. Would you like to <a href="/upload">upload</a> one?
+		</li>
+	</ul>
+	{% endif %}
+	<div class="video-wrapper-container">
+		{% for item in videos %}
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="{{item.videoPath}}" type="{{item.videoType}}"><p>Your browser does not support HTML5 video. To download the video, click <a href="{{item.videoPath}}">here</a>.</p>
+			</video>
+			<input type ="Button" value="Edit" class="popup-edit-buttons" id="btn-edit-video-{{item.videoid}}">
+		</div>
+		{% endfor %}
+	</div>
+
+	{% for item in videos %}
+	<div class="video-info-wrapper" tabindex="-1" id="video-{{item.videoid}}">
+		<form action="/edit-video" method="POST" id="profile-form">
+			<div class="form-row">
+				<h3 class='form-title'>Video details</h3>
+				<br>
+			</div>
+			<div class="form-row" id="hidden-input-video-edit">
+				<div class="col-25"><label for="videoid">Video ID:</label></div>
+				<div class="col-75"><input class="user-input" type="text" id="videoidInput" name="videoidInput" maxlength="50" value="{{item.videoid}}" required readonly="True"></div>
+			</div>
+			<div class="form-row">
+				<div class="col-25"><label for="videoNameInput">Video Name:</label></div>
+				<div class="col-75"><input class="user-input" type="text" id="videoNameInput" name="videoNameInput" maxlength="50" value="{{item.videoName}}" required></div>
+			</div>
+			<div class="form-row">
+				<div class="col-25"><label for="descriptionInput">Description:</label></div>
+				<div class="col-75"><textarea id="descriptionInput" name="descriptionInput" placeholder="What is this video about?" rows="10" cols="30" maxlength="300" wrap="soft">{{item.videoDescription}}</textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<input type="checkbox" name="deleteVideo" value="{{item.videoid}}" id="chkbx-{{item.videoid}}"/>
+				<label class="chkbx-label" for="chkbx-{{item.videoid}}">Delete video?</label>
+			</div>
+			<div class="form-row" id="submit-btn">
+					<input type="submit" value="Submit" class="submit-form">
+			</div>
+		</form>
+	</div>
+	{% endfor %}
+
+{% endblock %}
+
+{% block more_js %}
+<script src="/static/scripts/video_page.js"></script>
+<script src="/static/scripts/video_edit.js"></script>
+{% endblock more_js %}

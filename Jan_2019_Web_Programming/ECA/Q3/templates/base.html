@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8"> <!-- Not supported in HTML5 -->
+<html>
+<title>{{title}} | Live video streaming</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+<link rel = "stylesheet" href = "/static/css/style.css">
+<head> 
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please use a browser that supports JavaScript to enjoy all features of this page.</noscript>
+</head>
+
+<body>
+<!-- page content -->
+<!-- HTML -->
+<!-- Question 1a) drafting up the static html of the site-->
+
+<div class="header">
+	<div class="title">
+		<h1>{{title}}</h1>
+		<div class="navbar-container">
+			{% if current_user.is_authenticated %}
+			<a href="{{url_for('main.editVideo')}}" class="nav-item nav-edit">
+			Videos
+			</a>
+			<a href="{{url_for('main.editProfile')}}" class="nav-item nav-edit">
+			Profile
+			</a>
+			<a href="{{url_for('main.uploadVideo')}}" class="nav-item nav-edit">
+			Upload
+			</a>
+			{% endif %}
+			<a href="{{url_for('main.index')}}" class="nav-item">
+			Home
+			</a>
+			{% if not current_user.is_authenticated %}
+			<a href="{{url_for('auth.login')}}" class="nav-item">
+			Login
+			</a>
+			<a href="{{url_for('auth.register')}}" class="nav-item">
+			Register
+			</a>
+			{% endif %}
+			{% if current_user.is_authenticated %}
+			<a href="{{url_for('auth.logout')}}" class="nav-item">
+			Logout
+			</a>
+			{% endif %}
+		</div>
+	</div>
+	<div id="advertisement-container"> 
+		<!-- 1st Section, title is in header just because it looks nicer in the blue header as well -->		
+		{% block adBanners %}
+			{% for item in banners %}
+			<img class="bannerAd" src="{{item.path}}">
+			{% endfor %}
+		{% endblock adBanners %}
+	</div>
+</div>
+
+<div class="body-container"> <!-- 2nd section, main body housing videos -->
+	{% block content %}
+	{% endblock %}
+	<div class="site-info" tabindex="-1" id="about">
+			<h3>ABOUT</h3>
+			<br>
+		<p>This is a livestreaming website! By ICT239 ECA.</p>
+	</div>
+
+	<div class="site-info" tabindex="-1" id="terms">
+			<h3>TERMS</h3>
+			<br>
+		<p>Blah blah do not plagerize and this is a MVP product etc etc.</p>
+	</div>
+</div>
+
+<div class="footer-container"> <!-- 3rd section, footer -->
+	<input type ="Button" value="about" class="popup-detail-buttons" id="btn-about">
+	<input type ="Button" value="terms" class="popup-detail-buttons" id="btn-terms">
+</div>
+</body>
+<footer>
+	{% block more_js %}
+	<script>
+		var adBannerViews = {{banners | safe}}
+	</script>
+	<script src="/static/scripts/main.js"></script>
+	{% endblock more_js %}
+</footer>
+</html>

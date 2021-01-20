@@ -1,0 +1,37 @@
+<!-- admin.html template -->
+{% extends "base.html" %}
+
+<!-- I don't think admins want to see advertsisements -->
+
+{% block content %}
+	{% with messages = get_flashed_messages(with_categories=True) %}
+	  {% if messages %}
+	  <ul class="flashes absolute">
+	  {% for category, message in messages %}
+	      <li class="{{category}}">{{ message | safe }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+
+	<div class="canvas-wrapper-container">
+		<div class="canvas-wrapper">
+			<div class="title"><h2>Chart 1 - User data</h2></div>
+			<canvas id="chart1" height="100"></canvas>
+		</div>
+		<div class="canvas-wrapper">
+			<div class="title"><h2>Chart 2 - Advertisement data</h2></div>
+			<canvas id="chart2" height="100"></canvas>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block more_js %}
+<script>
+	var chartData = {{array | safe}}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" ></script>
+<script src="/static/scripts/main.js"></script>
+<script src="/static/scripts/admin_charts.js"></script>
+{% endblock more_js %}

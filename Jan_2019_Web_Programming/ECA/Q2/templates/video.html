@@ -1,0 +1,40 @@
+<!-- video.html template -->
+{% extends "base.html" %}
+
+		{% block adBanners %}
+		{{super()}}
+		{% endblock adBanners %}
+
+{% block content %}
+	<div class="video-wrapper-container">
+		{% for item in videos %}
+		<div class="video-wrapper">
+			<video controls loop>
+				<source src="{{item.videoPath}}" type="{{item.videoType}}"><p>Your browser does not support HTML5 video. To download the video, click <a href="{{item.videoPath}}">here</a>.</p>
+			</video>
+			{% for profile in item.uploaderProfile %}
+			<input type ="Button" value="Profile" class="popup-detail-buttons" id="btn-profile{{profile.userid}}">
+			{% endfor %}
+		}
+		</div>
+		{% endfor %}
+	</div>
+
+	<!-- Profile popup windows -->
+	{% for item in videos %}
+	{% for profile in item.uploaderProfile %}
+	<div class="profile-wrapper" tabindex="-1" id="profile{{profile.userid}}">
+		<div class="main-details clearfix">
+		<div class="avatar"><img src="{{profile.profileImage}}" alt="profile{{profile.userid}}-avatar"></div>
+			<h3>{{profile.profileName}}</h3>
+		</div>
+		<p>{{profile.profileInfo}}</p>
+	</div>
+	{% endfor %}
+	{% endfor %}
+
+{% endblock %}
+
+{% block more_js %}
+{{super()}}
+{% endblock more_js %}
